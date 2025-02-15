@@ -1,0 +1,27 @@
+.access-form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px 0px;
+}
+.access-form input,
+.access-form textarea {
+    padding: 20px;
+    border-radius: 5px;
+}
+.submit-container { 
+    width: 100%; 
+    text-align: right;
+}
+.access-form button {
+    padding: 15px 25px 15px 25px;
+    border-radius: 5px;
+}
+.access-form label {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+}
+@media screen and (max-width: 768px) {
+    .access-form { gap: 0; }
+    .access-form label { width: 100%; }
+}

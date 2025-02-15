@@ -1,0 +1,10 @@
+.search-title {
+    text-align: center;
+    font-size: 30px;
+}
+.search-container div { text-align: center; }
+.search-container div select {
+    padding: 15px 20px 15px 20px;
+    width: 70%;
+    border-radius: 5px;
+}

@@ -1,0 +1,29 @@
+.loop-exercises-grid ul { 
+    display: grid;  display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    list-style: none;
+    padding: 0;
+}
+.loop-exercises-grid ul li {
+    background-color: #303030;
+    border-radius: 10px;
+    padding: 20px;
+}
+.loop-exercises-grid h1 { font-size: 30px; }
+.loop-exercises-grid a { 
+    color: var(--foreground); 
+    text-decoration: none;
+}
+.exercise-img {
+    border-radius: 10px;
+    width: 100%;
+    height: 250px;
+    margin: 15px 0px 0px 0px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+@media screen and ( max-width: 768px ) {
+    .loop-exercises-grid ul { grid-template-columns: repeat(1, 1fr); }
+}
