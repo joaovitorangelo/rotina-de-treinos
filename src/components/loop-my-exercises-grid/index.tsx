@@ -46,25 +46,27 @@ export default function LoopMyExercisesGrid() {
   }, [userId]);
 
   return (
-    <section className="loop-exercises-grid">
-      <h1>Meus Exercícios</h1>
-      <ul>
-        {exercises.slice(0, 6).map((exercise, index) => (
-          <Link
-            key={index}
-            href={`/muscle/?exercise=${encodeURIComponent(exercise.name)}`}
-          >
-            <li>
-              <strong>{exercise.name}</strong>
-              <div
-                className="exercise-img"
-                style={{ backgroundImage: `url(${exercise.image})` }}
-              ></div>
-              <p className="ellipsis">{exercise.instructions}</p>
-            </li>
-          </Link>
-        ))}
-      </ul>
-    </section>
+    <>
+      <section className="loop-exercises-grid">
+        <h1>Meus exercícios</h1>
+        <ul>
+          {exercises.slice(0, 6).map((exercise, index) => (
+            <Link
+              key={index}
+              href={`/muscle/?exercise=${encodeURIComponent(exercise.name)}`}
+            >
+              <li>
+                <strong>{exercise.name}</strong>
+                <div
+                  className="exercise-img"
+                  style={{ backgroundImage: `url(${exercise.image})` }}
+                ></div>
+                <p className="ellipsis">{exercise.instructions}</p>
+              </li>
+            </Link>
+          ))}
+        </ul>
+      </section>
+    </>
   );
 }
