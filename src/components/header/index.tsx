@@ -15,11 +15,11 @@ export function Header() {
                 Minha conta
               </Link>
             </li>
-            <li>
+            {/* <li>
               <Link href="/sign-up">
                 Login
               </Link>
-            </li>
+            </li> */}
           </ul>
         </nav>
       </div>
