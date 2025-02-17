@@ -42,9 +42,7 @@ export const AuthContextProvider: React.FC<AuthContextProviderProps> = ({
         <AuthContext.Provider value={{ userAuth, logout }}>
             {loading
                 ?
-                <div>
-                    <h1>Loading...</h1>
-                </div>
+                <div>Carregando...</div>
                 :
                 children
             }

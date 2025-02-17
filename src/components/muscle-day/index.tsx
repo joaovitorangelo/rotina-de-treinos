@@ -4,10 +4,9 @@ import { useEffect, useState } from "react";
 import { db } from "../../firebase/firebaseAppConfig";
 import { collection, getDocs, query, where } from "firebase/firestore";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
-import './index.css'
+import './index.css';
 
 interface MuscleDayProps {
-    muscle: string;
     weekday: string;
 }
 
@@ -18,7 +17,7 @@ interface ExerciseData {
     image?: string;
 }
 
-export default function MuscleDay({ muscle, weekday }: MuscleDayProps) {
+export default function MuscleDay({ weekday }: MuscleDayProps) {
     const [exercises, setExercises] = useState<ExerciseData[]>([]);
     const [loading, setLoading] = useState(true);
     const [userId, setUserId] = useState<string | null>(null);
@@ -45,12 +44,11 @@ export default function MuscleDay({ muscle, weekday }: MuscleDayProps) {
                 const q = query(
                     exercisesCollection,
                     where("userId", "==", userId),
-                    where("muscle", "==", muscle),
                     where("weekday", "==", weekday)
                 );
                 const querySnapshot = await getDocs(q);
                 const fetchedExercises: ExerciseData[] = [];
-                
+
                 querySnapshot.forEach((doc) => {
                     fetchedExercises.push(doc.data() as ExerciseData);
                 });
@@ -64,28 +62,27 @@ export default function MuscleDay({ muscle, weekday }: MuscleDayProps) {
         };
 
         fetchExercises();
-    }, [muscle, weekday, userId]);
+    }, [weekday, userId]);
 
     return (
         <>
             <section className="muscle-day-container">
-                <h1>Exercícios para {muscle} na {weekday}</h1>
                 {loading ? (
-                    <p>Carregando...</p>
+                    <div className="loading"></div>
                 ) : exercises.length > 0 ? (
                     <ul>
+                        <h1>{weekday}</h1>
                         {exercises.map((exercise, index) => (
                             <li key={index}>
-                                <h2>{exercise.name}</h2>
+                                <h2>{exercise.name} ({exercise.muscle})</h2>
                                 <strong>Instruções:</strong> 
                                 <p>{exercise.instructions}</p>
                                 {exercise.image && <img src={exercise.image} alt={exercise.name} />}
                             </li>
                         ))}
+                        <hr />
                     </ul>
-                ) : (
-                    <p>Nenhum exercício encontrado.</p>
-                )}
+                ) : null}
             </section>
         </>
     );

@@ -2,3 +2,9 @@
     list-style: none;
     padding: 0;
 }
+.muscle-day-container img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 10px;
+}

@@ -13,11 +13,24 @@ export default function SearchExercise() {
     const [userId, setUserId] = useState<string | null>(null);
     const auth = getAuth();
 
-    const muscles = [
-        "abdominals", "abductors", "adductors", "biceps", "calves", "chest", "forearms", 
-        "glutes", "hamstrings", "lats", "lower_back", "middle_back", "neck", "quadriceps", 
-        "traps", "triceps"
-    ];
+    const muscles = {
+        abdominals: "Abdominal",
+        abductors: "Abdutores",
+        adductors: "Adutores",
+        biceps: "Bíceps",
+        calves: "Panturrilhas",
+        chest: "Peitoral",
+        forearms: "Antebraços",
+        glutes: "Glúteos",
+        hamstrings: "Posterior da coxa",
+        lats: "Dorsais",
+        lower_back: "Parte inferior das costas",
+        middle_back: "Parte média das costas",
+        neck: "Pescoço",
+        quadriceps: "Quadríceps",
+        traps: "Trapézio",
+        triceps: "Tríceps",
+      };
 
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, (user) => {
@@ -63,41 +76,43 @@ export default function SearchExercise() {
     }, [selectedMuscle, userId]);
 
     return (
-        <section className="search-container">
-            <h1 className="search-title">Pesquisar</h1>
-            <div>
+        <>
+            <section className="search-container">
+                <h1 className="search-title">Pesquisar</h1>
+                <div>
                 <select id="muscle-select" onChange={handleMuscleSelect} value={selectedMuscle}>
-                    <option value="">Selecione...</option>
-                    {muscles.map((muscle, index) => (
-                        <option key={index} value={muscle}>
-                            {muscle.charAt(0).toUpperCase() + muscle.slice(1).replace("_", " ")}
+                    <option value="">Selecionar...</option>
+                    {Object.entries(muscles).map(([key, value], index) => (
+                        <option key={index} value={key}>
+                            {value}
                         </option>
                     ))}
                 </select>
-            </div>
-            {showResults && selectedMuscle && (
-                <>
-                    <LoopExercisesGrid muscle={selectedMuscle} />
-                    {firebaseExercises.length > 0 && (
-                        <section className="loop-exercises-grid">
-                            <ul>
-                                {firebaseExercises.map((exercise, index) => (
-                                    <Link                 
-                                        key={index}
-                                        href={`/muscle/?exercise=${encodeURIComponent(exercise.name)}`}
-                                    >
-                                        <li>
-                                            <strong>{exercise.name}</strong>
-                                            <div className="exercise-img" style={{ backgroundImage: `url(${exercise.image})` }}></div>
-                                            <p className="ellipsis">{exercise.instructions}</p>
-                                        </li>
-                                    </Link>
-                                ))}
-                            </ul>
-                        </section>
-                    )}
-                </>
-            )}
-        </section>
+                </div>
+                {showResults && selectedMuscle && (
+                    <>
+                        <LoopExercisesGrid muscle={selectedMuscle} />
+                        {firebaseExercises.length > 0 && (
+                            <section className="loop-exercises-grid">
+                                <ul>
+                                    {firebaseExercises.map((exercise, index) => (
+                                        <Link                 
+                                            key={index}
+                                            href={`/muscle/?exercise=${encodeURIComponent(exercise.name)}`}
+                                        >
+                                            <li>
+                                                <strong>{exercise.name}</strong>
+                                                <div className="exercise-img" style={{ backgroundImage: `url(${exercise.image})` }}></div>
+                                                <p className="ellipsis">{exercise.instructions}</p>
+                                            </li>
+                                        </Link>
+                                    ))}
+                                </ul>
+                            </section>
+                        )}
+                    </>
+                )}
+            </section>
+        </>
     );
 }

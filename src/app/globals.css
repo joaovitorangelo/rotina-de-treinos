@@ -26,6 +26,12 @@ section {
   opacity: 0;
   animation: fadeIn 0.5s forwards;
 }
+.loading { 
+  height: 50px;
+  background-color: #30303085;
+  border-radius: 10px;
+  margin: 10px 0;
+}
 @keyframes fadeIn {
   0% {
       opacity: 0;

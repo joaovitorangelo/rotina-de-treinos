@@ -4,9 +4,8 @@ import { useState } from "react";
 import { db, auth } from "../../firebase/firebaseAppConfig";
 import { collection, addDoc } from "firebase/firestore";
 import { useAuthState } from "react-firebase-hooks/auth";
-import LoopMyExercisesGrid from "../../components/loop-my-exercises-grid";
-import './page.css'
 import MuscleDay from "@/components/muscle-day";
+import './page.css'
 
 export default function ExerciseForm() {
   const [name, setName] = useState("");
@@ -141,9 +140,13 @@ export default function ExerciseForm() {
           </div>
         </form>
       </section>
-      <LoopMyExercisesGrid />
-      <MuscleDay muscle='biceps' weekday='Segunda-feira' /> 
-      <MuscleDay muscle='triceps' weekday='Sexta-feira' /> 
+      <MuscleDay weekday='Segunda-feira' /> 
+      <MuscleDay weekday='Terça-feira' /> 
+      <MuscleDay weekday='Quarta-feira' /> 
+      <MuscleDay weekday='Quinta-feira' /> 
+      <MuscleDay weekday='Sexta-feira' /> 
+      <MuscleDay weekday='Sábado' /> 
+      <MuscleDay weekday='Domingo' /> 
     </>
   );
 }

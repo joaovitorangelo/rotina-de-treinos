@@ -27,7 +27,7 @@ export default function SignIn() {
                 }
             }
 
-            return router.push("/");
+            return router.push("/account");
         } catch (error) {
             console.error('Error: ', error);
         }

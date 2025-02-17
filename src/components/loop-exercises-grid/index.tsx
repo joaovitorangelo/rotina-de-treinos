@@ -38,7 +38,7 @@ export default function LoopExercisesGrid({ muscle }: LoopExercisesGridProps) {
     return (
         <>
             <section className="loop-exercises-grid">
-                <h1>{muscle}</h1>
+                <h1>{muscle.charAt(0).toUpperCase() + muscle.slice(1).replace("_", " ")}</h1>
                 <ul>
                     {exercises.slice(0, 6).map((exercise, index) => (
                         <Link href={`/muscle/?category=${muscle}&exercise=${encodeURIComponent(exercise.name)}`}>
