@@ -1,5 +1,7 @@
 'use client'
 
+import { useRouter } from "next/navigation";
+import { useAuthContext } from "../../context/AuthContext";
 import { useState } from "react";
 import { db, auth } from "../../firebase/firebaseAppConfig";
 import { collection, addDoc } from "firebase/firestore";
@@ -8,6 +10,13 @@ import MuscleDay from "@/components/muscle-day";
 import './page.css'
 
 export default function ExerciseForm() {
+  const { userAuth, logout } = useAuthContext();
+  const router = useRouter();
+
+  if (userAuth == null) {
+    router.push("/sign-in");
+  }
+
   const [name, setName] = useState("");
   const [image, setImage] = useState("");
   const [instructions, setInstructions] = useState("");
