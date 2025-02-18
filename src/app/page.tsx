@@ -3,6 +3,7 @@ import { useRouter } from "next/navigation";
 import { useAuthContext } from "../context/AuthContext";
 import LoopExercisesGrid from "../components/loop-exercises-grid"
 import SearchExercise from "../components/search-exercise/index";
+import ExerciseToday from "@/components/exercise-today";
 
 export default function Home() {
   const { userAuth, logout } = useAuthContext();
@@ -21,6 +22,7 @@ export default function Home() {
         </section>
       )} */}
       <SearchExercise />
+      <ExerciseToday />
       <LoopExercisesGrid muscle='triceps' />
       <LoopExercisesGrid muscle='biceps' />
       <LoopExercisesGrid muscle='chest' />
