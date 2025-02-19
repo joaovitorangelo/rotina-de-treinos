@@ -1,3 +1,5 @@
+.muscle-day-container ul li,
+.muscle-day-container { padding-bottom: 50px; }
 .muscle-day-container ul {
     list-style: none;
     padding: 0;

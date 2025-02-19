@@ -115,7 +115,6 @@ export default function MuscleDay({ weekday }: MuscleDayProps) {
                                 {exercise.image && <img src={exercise.image} alt={exercise.name} />}
                             </li>
                         ))}
-                        <hr />
                     </ul>
                 ) : (
                     null

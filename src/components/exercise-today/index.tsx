@@ -39,8 +39,6 @@ export default function ExerciseToday() {
 
         const today = new Date().toLocaleString('pt-BR', { timeZone: 'America/Sao_Paulo' });
 
-        console.log(today);
-
         const date = new Date(today);
         return weekdays[date.getDay()];
     };
