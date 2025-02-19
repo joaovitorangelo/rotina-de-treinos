@@ -28,19 +28,19 @@ export default function ExerciseToday() {
     // Função para obter o nome do dia da semana
     const getTodayWeekday = (): string => {
         const weekdays = [
-            "Segunda-feira", 
-            "Terça-feira", 
-            "Quarta-feira", 
-            "Quinta-feira", 
-            "Sexta-feira", 
-            "Sábado", 
-            "Domingo"
+            "Domingo",
+            "Segunda-feira",
+            "Terça-feira",
+            "Quarta-feira",
+            "Quinta-feira",
+            "Sexta-feira",
+            "Sábado"
         ];
+    
 
-        const today = new Date().toLocaleString('pt-BR', { timeZone: 'America/Sao_Paulo' });
-
-        const date = new Date(today);
-        return weekdays[date.getDay()];
+        const now = new Date( new Date().toLocaleString('en-US', { timeZone: 'America/Sao_Paulo' }));
+    
+        return weekdays[now.getDay()];
     };
 
     useEffect(() => {
