@@ -32,6 +32,11 @@ section {
   border-radius: 10px;
   margin: 10px 0;
 }
+.light h1,
+.light {
+  background-color: var(--foreground) !important;
+  color: var(--background) !important;
+}
 @keyframes fadeIn {
   0% {
       opacity: 0;

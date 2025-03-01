@@ -6,5 +6,7 @@
 .search-container div select {
     padding: 15px 20px 15px 20px;
     width: 70%;
-    border-radius: 5px;
+    border-radius: 100px;
+    border: none;
+    outline: none;
 }

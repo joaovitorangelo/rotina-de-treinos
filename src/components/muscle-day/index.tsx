@@ -97,7 +97,7 @@ export default function MuscleDay({ weekday }: MuscleDayProps) {
         <>
             <section className="muscle-day-container">
                 {loading ? (
-                    <div className="loading"></div>
+                    <div></div>
                 ) : exercises.length > 0 ? (
                     <ul>
                         <h1>{weekday}</h1>

@@ -21,6 +21,7 @@
     flex-direction: column;
     width: 50%;
 }
+.access-form label[for="displayname"] { width: 100%; }
 @media screen and (max-width: 768px) {
     .access-form { gap: 0; }
     .access-form label { width: 100%; }

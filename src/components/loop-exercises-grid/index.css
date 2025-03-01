@@ -10,6 +10,10 @@
     border-radius: 10px;
     padding: 20px;
 }
+.light .loop-exercises-grid ul li {
+    background-color: #0000000f;
+    color: var(--background);
+}
 .loop-exercises-grid h1 { font-size: 30px; }
 .loop-exercises-grid a { 
     color: var(--foreground); 

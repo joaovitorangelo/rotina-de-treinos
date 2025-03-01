@@ -5,11 +5,23 @@ header div {
 }
 header div ul {
     display: flex;
-    justify-content: end;
-    width: 200px;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
     list-style: none;
+}
+header nav ul li a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 header a {
     color: var(--foreground);
     text-decoration: none;
+}
+body.light .user-icon { color: var(--background); }
+body.dark .user-icon { color: var(--foreground); }
+@media screen and (max-width: 768px) {
+    header nav ul li a h1 { display: none; }
+    header div ul { width: auto; }
 }
