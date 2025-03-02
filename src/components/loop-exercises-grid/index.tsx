@@ -1,3 +1,4 @@
+'use client'
 import { useEffect, useState } from "react";
 import Link from 'next/link';
 import './index.css';
@@ -41,12 +42,13 @@ export default function LoopExercisesGrid({ muscle }: LoopExercisesGridProps) {
                 <h1>{muscle.charAt(0).toUpperCase() + muscle.slice(1).replace("_", " ")}</h1>
                 <ul>
                     {exercises.slice(0, 6).map((exercise, index) => (
-                        <Link href={`/muscle/?category=${muscle}&exercise=${encodeURIComponent(exercise.name)}`}>
-                            <li key={index}>
+                        // Melhorar código abaixo
+                        <li key={exercise.id || `${exercise.name}-${index}`}> 
+                            <Link href={`/muscle/?category=${muscle}&exercise=${encodeURIComponent(exercise.name)}`}>
                                 <strong>{exercise.name}</strong>
                                 <p className="ellipsis">{exercise.instructions}</p>
-                            </li>
-                        </Link>
+                            </Link>
+                        </li>
                     ))}
                 </ul>
             </section>

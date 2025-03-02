@@ -41,6 +41,7 @@ export default function MuscleDay({ weekday }: MuscleDayProps) {
         return () => unsubscribe();
     }, [auth]);
 
+    
     useEffect(() => {
         const fetchExercises = async () => {
             if (!userId) return;

@@ -4,7 +4,6 @@ import { useAuthContext } from "../context/AuthContext";
 import LoopExercisesGrid from "../components/loop-exercises-grid"
 import SearchExercise from "../components/search-exercise/index";
 import ExerciseToday from "@/components/exercise-today";
-import personalSuggestion from "@/components/exercise-today";
 import PersonalSuggestion from "@/components/personal-suggestion";
 
 export default function Home() {

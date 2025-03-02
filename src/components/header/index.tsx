@@ -1,23 +1,29 @@
 'use client';
-
-import { useEffect, useState } from "react";
-import Link from "next/link";
-import "./index.css";
-import ThemeChangeButton from "../theme-change-button";
-import { FaRegUserCircle } from "react-icons/fa";
-import { getAuth, onAuthStateChanged, User } from "firebase/auth";
+import Link from 'next/link';
+import { useState, useEffect } from 'react';
+import { FaRegUserCircle } from 'react-icons/fa';
+import ThemeChangeButton from '../theme-change-button';
+import { auth } from '../../firebase/firebaseAppConfig';
+import { onAuthStateChanged } from 'firebase/auth';
+import './index.css';
 
 export function Header() {
-  const [user, setUser] = useState<User | null>(null);
-  const auth = getAuth();
+  const [userId, setUserId] = useState<string | null>(null);
+  const [userName, setUserName] = useState<string | null>(null);
 
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-      setUser(currentUser);
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      if (user) {
+        setUserId(user.uid);
+        setUserName(user.displayName?.trim() ? user.displayName : user.email);
+      } else {
+        setUserId(null);
+        setUserName(null);
+      }
     });
 
     return () => unsubscribe();
-  }, [auth]);
+  }, []);
 
   return (
     <header>
@@ -29,10 +35,8 @@ export function Header() {
           <ul>
             <li>
               <Link href="/account">
-                <FaRegUserCircle className="user-icon" fontSize={'24px'}/>
-                <h1>
-                  { user ? `Olá ${user.displayName || user.email}!` : null }
-                </h1>
+                <FaRegUserCircle className="user-icon" fontSize={'24px'} />
+                {userId ? <h1>Olá, {userName}!</h1> : null}
               </Link>
             </li>
             <li>

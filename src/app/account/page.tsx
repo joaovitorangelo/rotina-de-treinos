@@ -32,7 +32,7 @@ export default function ExerciseForm() {
       alert("Você precisa estar logado para cadastrar um exercício.");
       return;
     }
-
+    
     setLoading(true);
 
     try {
@@ -79,10 +79,23 @@ export default function ExerciseForm() {
     triceps: "Tríceps",
   };
 
+  // Extrair momento do dia
+  const hour = new Date().getHours();
+  let momentDay = '';
+  let username = user?.displayName || user?.email;
+  if (hour >= 5 && hour < 12) {
+    momentDay = 'Bom dia ' + username;
+  } else if (hour >= 12 && hour < 18) {
+    momentDay = 'Boa tarde ' + username;
+  } else {
+    momentDay = 'Boa noite ' + username;
+  }
+
   return (
     <>
       <section>
-        <h1>Cadastrar rotina de treino</h1>
+        <h1>{momentDay}</h1>
+        <p>Cadastrar rotina de treino</p>
         <form className="register-exercise" onSubmit={handleSubmit}>
           <label htmlFor="exercise_name">Exercício:
             <input
