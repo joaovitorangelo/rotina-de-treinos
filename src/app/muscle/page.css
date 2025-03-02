@@ -1,0 +1,9 @@
+.muscle-section{
+    background-color: #303030;
+    border-radius: 10px;
+}
+.muscle-section div { padding: 10px 25px 10px 25px; }
+.muscle-section  div img { border-radius: 10px; }
+@media screen and (max-width: 768px) {
+    .muscle-section  div img { width: -webkit-fill-available; }
+}

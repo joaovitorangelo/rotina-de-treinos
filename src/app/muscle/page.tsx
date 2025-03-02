@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { useSearchParams } from 'next/navigation';
 import { db } from "../../firebase/firebaseAppConfig";
 import { collection, getDocs, query, where } from "firebase/firestore";
+import './page.css';
 
 interface ExerciseData {
   name: string;
@@ -68,7 +69,7 @@ export default function Muscle() {
     }, [exerciseName, muscleName]);
 
     return (
-        <section>
+        <section className="muscle-section">
             {exercise ? (
                 <div>
                     <h1>{exercise.name}</h1>
@@ -85,7 +86,7 @@ export default function Muscle() {
                     {exercise.image && <img src={exercise.image} alt={exercise.name} />}
                 </div>
             ) : (
-                <p>Carregando...</p>
+                null
             )}
         </section>
     );

@@ -26,3 +26,10 @@ label[for='exercise_image_url'],
 label[for='exercise_name'],
 label[for='muscle'] { width: 50%; }
 label[for='exercise_instructions'] { width: 100%; }
+@media screen and (max-width: 768px) {
+    label[for='weekday'],
+    label[for='exercise_image_url'],
+    label[for='exercise_name'],
+    label[for='muscle'],
+    label[for='exercise_instructions'] { width: 100%; }
+}

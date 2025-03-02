@@ -101,7 +101,10 @@ export default function MuscleDay({ weekday }: MuscleDayProps) {
                     <div></div>
                 ) : exercises.length > 0 ? (
                     <ul>
-                        <h1>{weekday}</h1>
+                        <div className="muscla-day-title-container">
+                            <h1>{weekday}</h1>
+                            <span></span>
+                        </div>
                         {exercises.map((exercise) => (
                             <li key={exercise.id}>
                                 <h2>{exercise.name} ({exercise.muscle})

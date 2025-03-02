@@ -1,12 +1,35 @@
-.muscle-day-container ul li,
-.muscle-day-container { padding-bottom: 50px; }
-.muscle-day-container ul {
-    list-style: none;
+.muscle-day-container {
+    background-color: #303030;
+    border-radius: 10px;
+    margin: 50px 0 50px 0;
     padding: 0;
 }
+.muscle-day-container ul {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 30px 30px 30px 30px;
+    margin: 0;
+    list-style: none;
+}
+.muscle-day-container h1 { margin: 0; }
 .muscle-day-container img {
     width: 150px;
     height: 150px;
     object-fit: cover;
     border-radius: 10px;
+}
+.muscla-day-title-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}
+.muscla-day-title-container span {
+    flex-grow: 1;
+    height: 2px;
+    background-color: #fff;
+}
+@media screen and (max-width: 768px) {
+    .muscle-day-container ul { padding: 25px 15px 25px 15px; }
 }

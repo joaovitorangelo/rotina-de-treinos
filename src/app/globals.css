@@ -32,11 +32,14 @@ section {
   border-radius: 10px;
   margin: 10px 0;
 }
+.light { background-color: var(--foreground); }
+.light .muscle-section,
+.light .muscle-day-container { background-color: #D5D5D5; }
+.light .muscla-day-title-container span { background-color: var(--background) !important; }
 .light h1,
-.light {
-  background-color: var(--foreground) !important;
-  color: var(--background) !important;
-}
+.light h2,
+.light p,
+.light strong { color: var(--background) !important; }
 @keyframes fadeIn {
   0% {
       opacity: 0;
