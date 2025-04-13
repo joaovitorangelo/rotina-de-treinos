@@ -50,7 +50,7 @@ export default function LoopMyExercisesGrid() {
       <section className="loop-exercises-grid">
         <h1>Meus exercícios</h1>
         <ul>
-          {exercises.slice(0, 6).map((exercise, index) => (
+          {exercises.slice(0, 50).map((exercise, index) => (
             <Link
               key={index}
               href={`/muscle/?exercise=${encodeURIComponent(exercise.name)}`}

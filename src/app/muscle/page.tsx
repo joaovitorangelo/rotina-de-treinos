@@ -18,8 +18,8 @@ interface ExerciseData {
 
 export default function Muscle() {
     const searchParams = useSearchParams();
-    const muscleName = searchParams.get('category');
-    const exerciseName = searchParams.get('exercise');
+    const muscleName = searchParams!.get('category');
+    const exerciseName = searchParams!.get('exercise');
     const [exercise, setExercise] = useState<ExerciseData | null>(null);
     
     useEffect(() => {

@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import LoopExercisesGrid from "../loop-exercises-grid/index";
+// import LoopExercisesGrid from "../loop-exercises-grid/index";
 import { db } from "../../firebase/firebaseAppConfig";
 import { collection, getDocs, query, where } from "firebase/firestore";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
@@ -91,7 +91,7 @@ export default function SearchExercise() {
                 </div>
                 {showResults && selectedMuscle && (
                     <>
-                        <LoopExercisesGrid muscle={selectedMuscle} />
+                        {/* <LoopExercisesGrid muscle={selectedMuscle} /> */}
                         {firebaseExercises.length > 0 && (
                             <section className="loop-exercises-grid">
                                 <ul>

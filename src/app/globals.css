@@ -36,6 +36,7 @@ section {
 .light .muscle-section,
 .light .muscle-day-container { background-color: #D5D5D5; }
 .light .muscla-day-title-container span { background-color: var(--background) !important; }
+.light .register-exercise label,
 .light h1,
 .light h2,
 .light p,

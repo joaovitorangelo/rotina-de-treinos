@@ -1,7 +1,12 @@
 'use client'
 import { useRouter } from "next/navigation";
 import { useAuthContext } from "../context/AuthContext";
-import LoopExercisesGrid from "../components/loop-exercises-grid"
+import { useEffect } from 'react';
+import { NotificationPermission } from '../context/NotificationPermission';
+import { SendNotification } from '../context/SendNotification';
+
+// import LoopExercisesGrid from "../components/loop-exercises-grid"
+import LoopMyExercisesGrid from "../components/loop-my-exercises-grid"
 import SearchExercise from "../components/search-exercise/index";
 import ExerciseToday from "@/components/exercise-today";
 import PersonalSuggestion from "@/components/personal-suggestion";
@@ -10,9 +15,17 @@ export default function Home() {
   const { userAuth, logout } = useAuthContext();
   const router = useRouter();
 
-  if (userAuth == null) {
-    router.push("/sign-in");
-  }
+  useEffect(() => {
+    if (userAuth == null) {
+      router.push("/sign-in");
+    }
+
+    NotificationPermission().then(token => {
+      if (token) {
+        SendNotification(token);
+      }
+    });
+  }, [userAuth]);
 
   return (
     <>
@@ -25,10 +38,11 @@ export default function Home() {
       <SearchExercise />
       <ExerciseToday />
       <PersonalSuggestion />
-      <LoopExercisesGrid muscle='triceps' />
+      {/* <LoopExercisesGrid muscle='triceps' />
       <LoopExercisesGrid muscle='biceps' />
       <LoopExercisesGrid muscle='chest' />
-      <LoopExercisesGrid muscle='lower_back' />
+      <LoopExercisesGrid muscle='lower_back' /> */}
+      <LoopMyExercisesGrid />
     </>
   );
 }
